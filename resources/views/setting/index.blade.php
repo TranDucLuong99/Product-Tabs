@@ -193,7 +193,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-2 m-auto text-center">
                                                 <div role="group" class="btn-group-sm btn-group">
                                                     <button class="btn btn-primary js-add-js-setting"
                                                             type="submit">

@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Navbar;
-use App\Post;
 use App\Setting;
-use Carbon\Carbon;
-//use \Illuminate\Http\Response;
 use http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -62,20 +59,18 @@ class SettingController extends Controller
     public function update(Request $request)
     {
         if ($request->ajax()) {
-//            dd($request);
             $data = $request->all();
-//            dd($data);
             $shop = ShopifyApp::shop();
             $setting = Setting::findOrFail(1);
             $data['shopify_domain'] = $shop->shopify_domain;
-//            dd($data);
             if ($request->status == "on")
                 $data['status'] = 1;
             else
                 $data['status'] = 0;
             $setting->update($data);
-            //$this->addScriptNarbarToTheme();
+
             $this->addCssToTheme();
+//            $this->addScriptNarbarToTheme();
             return response([
                 'message' => 'success',
                 'type' => 'success'
@@ -95,10 +90,7 @@ class SettingController extends Controller
         if (!$shop) {
             return false;
         }
-//        dd($data);
-        //$fileCss = file_get_contents('css/demo.css');
         $setting = Setting::findOrFail(1);
-//        dd($setting);
         if ($setting->font_family == 0) {
             $font_family = 'Arapey, serif';
         } elseif ($setting->font_family == 1) {
@@ -126,7 +118,6 @@ class SettingController extends Controller
             color: '."$setting->color_title". ';
         }
         ';
-//
         $theme = $shop->api()->rest('GET', '/admin/themes.json', ['fields' => 'id,name,role'])->body->themes;
         foreach ($theme as $_child) {
             if ($_child->role == "main") {
@@ -140,7 +131,6 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
-        //dd("success");
     }
 
     public function delete($id)
@@ -148,78 +138,6 @@ class SettingController extends Controller
         $setting = Setting::findOrFail($id);
         $setting->delete();
         return redirect()->back()->with('message', 'delete-success !');
-    }
-
-    public function addScriptToTheme()
-    {
-        $data = [];
-        $shop = ShopifyApp::shop();
-        if (!$shop) {
-            return false;
-        }
-        //$fileScript = file_get_contents('js/ndnapps-blogtest.js');
-        $setting = Setting::findorFail(5);
-        if ($setting->status == 1) {
-            if ($setting->order_by == 1) {
-                $posts = Post::with('category')->get();
-            } else {
-                $posts = Post::with('category')->orderBy('id', 'Desc')->get();
-            }
-            $now = Carbon::now();
-            $data = View::make('page.post', compact('posts', 'now'))->render();
-
-
-        } else {
-            $data = View::make('page.post', compact('setting'))->render();
-        }
-        $fileScript = file_get_contents('js/ndnapps-blogtest.js');
-        $fileScript = 'var ndn_blogtest_data= "' . base64_encode(json_encode($data)) . '";' . $fileScript;
-        $theme = $shop->api()->rest('GET', '/admin/themes.json', ['fields' => 'id,name,role'])->body->themes;
-        foreach ($theme as $_child) {
-            if ($_child->role == "main") {
-                $layout = $shop->api()->rest('GET', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ['key' => 'layout/theme.liquid']])->body->asset->value;
-                $add_script = ["key" => "assets/ndnapps-blogtest.js", "value" => $fileScript];
-                $put_script = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => $add_script]);
-                $new_layout = $layout;
-
-                if (!strpos($layout, 'ndnapps-blogtest.js')) {
-                    $new_layout = str_replace("</body>", "<script src='{{ 'ndnapps-blogtest.js' | asset_url }}' defer='defer'></script>\n</body>", $layout);
-                }
-
-                $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
-            }
-        }
-        dd("success");
-    }
-
-    public function addScriptToTheme1()
-    {
-        $data = [];
-        $shop = ShopifyApp::shop();
-        if (!$shop) {
-            return false;
-        }
-        $posts = Post::with('category')->get();
-        $now = Carbon::now();
-        $data = View::make('page.post_slider1', compact('posts', 'now'))->render();
-        $fileScript = file_get_contents('js/ndnapps-blogtest1.js');
-        $fileScript = 'var ndn_blogtest_data= "' . base64_encode(json_encode($data)) . '";' . $fileScript;
-        $theme = $shop->api()->rest('GET', '/admin/themes.json', ['fields' => 'id,name,role'])->body->themes;
-        foreach ($theme as $_child) {
-            if ($_child->role == "main") {
-                $layout = $shop->api()->rest('GET', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ['key' => 'layout/theme.liquid']])->body->asset->value;
-                $add_script = ["key" => "assets/ndnapps-blogtest1.js", "value" => $fileScript];
-                $put_script = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => $add_script]);
-                $new_layout = $layout;
-
-                if (!strpos($layout, 'ndnapps-blogtest1.js')) {
-                    $new_layout = str_replace("</body>", "<script src='{{ 'ndnapps-blogtest1.js' | asset_url }}' defer='defer'></script>\n</body>", $layout);
-                }
-
-                $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
-            }
-        }
-//        dd("success");
     }
 
     public function addScriptNarbarToTheme()
@@ -250,6 +168,5 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
-
     }
 }

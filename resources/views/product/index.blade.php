@@ -77,13 +77,12 @@
                                         <div role="group" class="btn-group-sm btn-group">
                                             <a type="button" class="btn btn-primary js-add-item" data-toggle="modal"
                                                data-target="#productModal">
-                                                <span><i class="fa fa-plus-circle"></i> Add Item </span>
+                                                <span style="color: white"><i class="fa fa-plus-circle"></i> Add Item </span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-body table-responsive">
-
                                     <div class="ndn-table">
                                         @include('product.include.table_product')
                                     </div>

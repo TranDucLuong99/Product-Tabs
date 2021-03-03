@@ -1,11 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
     <title>Document</title>
     <style>
@@ -62,8 +54,6 @@
             color: {{$setting->color}};
         }
     </style>
-</head>
-<body>
 <div class="aod_custom_tab style1" >
     <ul class="resp-tabs-list">
         @foreach($navbars as $navbar)
@@ -99,5 +89,3 @@
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <!-- Bootstrap-Iconpicker Bundle -->
 <script type="text/javascript" src="dist/js/bootstrap-iconpicker.bundle.min.js"></script>
-</body>
-</html>

@@ -121,7 +121,7 @@ class ProductController extends Controller
     public function frontend_product_ajax(Request $request)
     {
 
-        dd(1);
+//        dd(1);
         $product_id = $request->id;
         $setting = Setting::findOrFail(1);
         if ($setting->status == 1) {
