@@ -80,17 +80,17 @@
                                         <div class="row">
                                             <div class="col-sm-5">
                                                 <div class="form-group row">
-                                                    {{--<label class="col-sm-3 col-form-label">Status</label>--}}
-                                                    {{--<div class="col-sm-9">--}}
-                                                        {{--<label class="switch checkbox" data-toggle="tooltip"--}}
-                                                               {{--data-placement="right"--}}
-                                                               {{--title="" data-original-title="Click to Enable/Disable">--}}
-                                                            {{--<input class="form-control" type="checkbox" id="status"--}}
-                                                                   {{--name="status"--}}
-                                                                   {{--@if($setting->status == 1)checked="checked"@endif>--}}
-                                                            {{--<span class="slider round"></span>--}}
-                                                        {{--</label>--}}
-                                                    {{--</div>--}}
+                                                    <label class="col-sm-3 col-form-label">Status</label>
+                                                    <div class="col-sm-9">
+                                                        <label class="switch checkbox" data-toggle="tooltip"
+                                                               data-placement="right"
+                                                               title="" data-original-title="Click to Enable/Disable">
+                                                            <input class="form-control" type="checkbox" id="status"
+                                                                   name="status"
+                                                                   @if($setting->status == 1)checked="checked"@endif>
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
 
@@ -283,7 +283,6 @@
         $(document).on("click", ".js-add-js-setting", function (e) {
             e.preventDefault();
             let route = '{{route('setting.update')}}';
-            // alert($('#setting-form').serialize());
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

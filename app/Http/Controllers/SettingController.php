@@ -219,7 +219,7 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
-        dd("success");
+//        dd("success");
     }
 
     public function addScriptNarbarToTheme()
