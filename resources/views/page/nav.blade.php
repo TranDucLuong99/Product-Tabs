@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.css"/>
-    {{--<link rel="stylesheet" href="..bootstrap/dist/css/bootstrap-iconpicker.css"/>--}}
+    <link rel="stylesheet" href="..bootstrap/dist/css/bootstrap-iconpicker.css"/>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

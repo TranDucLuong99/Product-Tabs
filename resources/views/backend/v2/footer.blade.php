@@ -1,7 +1,5 @@
-{{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> --}}
 
 <script type="text/javascript" src="{{ secure_asset('/js/backend/v2/bootstrap-custom.js') }}"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
 <script src="//cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
@@ -14,7 +12,9 @@
 <script type="text/javascript"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="{{ secure_asset('/bootstrap-iconpicker-1.10.0/dist/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
-<script type="text/javascript" src="{{ secure_asset('/js/backend/jscolor.js') }}"></script>
+{{--<script type="text/javascript" src="{{ secure_asset('/js/backend/jscolor.js') }}"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js" integrity="shsa512-YxdM5kmpjM5ap4Q437qwxlKzBgJApGNw+zmchVHSNs3LgSoLhQIIUNNrR5SmKIpoQ18mp4y+aDAo9m/zBQ408g==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.js" integrity="sha512-XHuMzVqLn8UPJhFdfBuLb7YK3xUnO3ONKDP4ErFcdo7jl2Lm4s5mds4WFLV1FS+NHJ5beAbDRtifIm/B/5yymQ==" crossorigin="anonymous"></script>
 <script type="text/javascript">
     //Plan
     function upgradeModal() {
@@ -124,6 +124,5 @@
 <div class="ndn-message">
     @include('backend.v2.message')
 </div>
-
 </body>
 </html>

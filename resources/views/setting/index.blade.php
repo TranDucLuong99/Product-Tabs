@@ -93,20 +93,7 @@
                                                     {{--</div>--}}
                                                 </div>
                                                 <div class="form-group row">
-                                                    {{--<label class="col-sm-3 col-form-label">Type</label>--}}
-                                                    {{--<div class="col-sm-9">--}}
-                                                        {{--<select class="form-control" id="exampleFormControlSelect1"--}}
-                                                                {{--name="type">--}}
-                                                            {{--<option value="0"--}}
-                                                                    {{--@if($setting->type == 0)selected="selected"@endif>--}}
-                                                                {{--vertical--}}
-                                                            {{--</option>--}}
-                                                            {{--<option value="1"--}}
-                                                                    {{--@if($setting->type == 1)selected="selected"@endif>--}}
-                                                                {{--horizontal--}}
-                                                            {{--</option>--}}
-                                                        {{--</select>--}}
-                                                    {{--</div>--}}
+
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Max
@@ -123,10 +110,11 @@
                                                     <div class="col-sm-9">
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input class="form-control" type="color"
+                                                                <input value="{{$setting->background}}" data-jscolor="{}"
+                                                                       class="form-control"
                                                                        class="form-check-input"
                                                                        name="background"
-                                                                       value="{{$setting->background}}">
+                                                                       id="background">
                                                             </label>
                                                         </div>
                                                     </div>
@@ -136,9 +124,11 @@
                                                     <div class="col-sm-9">
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input class="form-control" type="color"
+                                                                <input value="{{$setting->color}}" data-jscolor="{}"
+                                                                       class="form-control"
                                                                        class="form-check-input"
-                                                                       name="color" value="{{$setting->color}}">
+                                                                       name="color"
+                                                                       id="color">
                                                             </label>
                                                         </div>
                                                     </div>
@@ -178,10 +168,11 @@
                                                     <div class="col-sm-9">
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input class="form-control" type="color"
+                                                                <input value="{{$setting->background_title}}" data-jscolor="{}"
+                                                                       class="form-control"
                                                                        class="form-check-input"
                                                                        name="background_title"
-                                                                       value="{{$setting->background_title}}">
+                                                                       id="background_title">
                                                             </label>
                                                         </div>
                                                     </div>
@@ -192,10 +183,11 @@
                                                     <div class="col-sm-9">
                                                         <div class="form-check-inline">
                                                             <label class="form-check-label">
-                                                                <input class="form-control" type="color"
+                                                                <input value="{{$setting->color_title}}" data-jscolor="{}"
+                                                                       class="form-control"
                                                                        class="form-check-input"
                                                                        name="color_title"
-                                                                       value="{{$setting->color_title}}">
+                                                                       id="color_title">
                                                             </label>
                                                         </div>
                                                     </div>

@@ -94,16 +94,13 @@ class NavbarController extends Controller
                   }
                 }
             ')->body->products->edges;
-        //dd($apis);
         $out_put = '<select class="locationMultiple form-control" multiple="multiple" name="product_ids[]">';
         foreach ($apis as $api){
             $id = explode("gid://shopify/Product/", $api->node->id);
             $id = array_pop($id);
-            //dd($id);
             $out_put .= '<option class="form-group ajax_click" value="'.$id.'">'.$api->node->title.'</option>';
         }
         $out_put .= '</select>';
-        //dd($out_put);
         echo $out_put;
     }
 
@@ -124,10 +121,10 @@ class NavbarController extends Controller
             return false;
         }
         $setting = Setting::findOrFail(1);
-        if ($setting->status == 1) {
+//        if ($setting->status == 1) {
             $navbars = Navbar::take($setting->max_column)->orderby('n_order')->get();
             $data = View::make('page.navbar', compact('navbars', 'setting'))->render();
-        }
+//        }
         $fileScript = file_get_contents('js/ndnapps_navbar.js');
         $fileScript = 'var ndn_navbar_data= "' . base64_encode(json_encode($data)) . '";' . $fileScript;
         $theme = $shop->api()->rest('GET', '/admin/themes.json', ['fields' => 'id,name,role'])->body->themes;

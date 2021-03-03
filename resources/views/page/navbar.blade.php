@@ -5,20 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{--<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">--}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css"/>
-
-    <!-- Bootstrap CDN -->
-{{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>--}}
 <!-- Font Awesome CDN -->
-{{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>--}}
-<!-- Bootstrap-Iconpicker -->
-    <link rel="stylesheet" href="dist/css/bootstrap-iconpicker.min.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
     <title>Document</title>
-    {{--<script--}}
-            {{--src="https://code.jquery.com/jquery-3.5.1.js"--}}
-            {{--integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="--}}
-            {{--crossorigin="anonymous"></script>--}}
     <style>
         .resp-tabs-list {
             padding: 0px 0px 0 !important;
@@ -34,7 +23,7 @@
             margin: 0;
             text-transform: uppercase;
             line-height: normal;
-            padding: 17px 20px 15px;
+            padding: 10px;
             border-bottom: 1px solid #eae4e4;
             font-style: normal;
             display: table-cell;
@@ -63,12 +52,11 @@
             position: relative;
         }
         .aod_custom_tab.style1 {
-            width: 500px;
             /* text-align: center; */
             margin: 0 auto;
             border: 1px solid #eae4e4;
             border-radius: 5px;
-            padding: 0 7px;
+            /*padding: 0 7px;*/
             font-size: {{$setting->font_site}}px;
             background-color: {{$setting->background}};
             color: {{$setting->color}};
@@ -76,7 +64,7 @@
     </style>
 </head>
 <body>
-<div class="aod_custom_tab style1" style="width: 600px; padding: 0px">
+<div class="aod_custom_tab style1" >
     <ul class="resp-tabs-list">
         @foreach($navbars as $navbar)
             @if($navbar->status == 1)

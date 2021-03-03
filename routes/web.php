@@ -154,9 +154,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('navbar/edit/{id}','NavbarController@edit')->name('edit.navbar');
     Route::get('navbar/show/{id}','NavbarController@show')->name('show.navbar');
     Route::get('addScriptNarbarToTheme','NavbarController@addScriptNarbarToTheme')->name('addScriptNarbarToTheme');
-
-    Route::get('cartAnimation', 'CartAnimationController@index')->name('cartAnimation.index');
-    Route::get('add-cartAnimation', 'CartAnimationController@add_cartAnimation')->name('add_cartAnimation');
-    Route::get('cart-ani', 'CartAnimationController@cart_ani')->name('cart-ani.index');
-
 });

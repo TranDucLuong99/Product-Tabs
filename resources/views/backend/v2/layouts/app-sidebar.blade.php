@@ -58,12 +58,6 @@
                         Settings
                     </a>
                 </li>
-                <li class="li-menu li-active">
-                    <a href="{{route('cartAnimation.index')}}">
-                        <i class="metismenu-icon fa fa-address-card"></i>
-                        Cart Animation
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
