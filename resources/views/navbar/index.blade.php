@@ -33,10 +33,10 @@
                                 <div class="btn-actions-pane-right">
                                     <div role="group" class="btn-group-sm btn-group">
                                         <a class="btn btn-primary" href="{{route('create.navbar')}}">
-                                            <span><i class="fa fa-plus-circle"></i> Add Navbar </span>
+                                            <span><i class="fa fa-plus-circle"></i> Add Tab </span>
                                         </a>
                                         <a class="btn btn-success" href="{{route('addScriptNarbarToTheme')}}">
-                                            <span><i class="fa fa-paper-plane"></i> Save Navbar to Theme</span>
+                                            <span><i class="fa fa-paper-plane"></i> Publish To Theme</span>
                                         </a>
                                     </div>
                                 </div>

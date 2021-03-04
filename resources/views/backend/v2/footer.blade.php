@@ -67,53 +67,53 @@
     CKEDITOR.replace('summary-ckeditor');
     CKEDITOR.replace('summary-description');
 </script>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+{{--<script>--}}
+    {{--function readURL(input) {--}}
+        {{--if (input.files && input.files[0]) {--}}
+            {{--var reader = new FileReader();--}}
 
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
+            {{--reader.onload = function (e) {--}}
+                {{--$('#blah').attr('src', e.target.result);--}}
+            {{--}--}}
 
-            reader.readAsDataURL(input.files[0]); // convert to base64 string
-        }
-    }
+            {{--reader.readAsDataURL(input.files[0]); // convert to base64 string--}}
+        {{--}--}}
+    {{--}--}}
 
-    $("#imgInp").change(function () {
-        readURL(this);
-    });
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
+    {{--$("#imgInp").change(function () {--}}
+        {{--readURL(this);--}}
+    {{--});--}}
+    {{--$(document).ready(function () {--}}
+        {{--$('#example').DataTable();--}}
+    {{--});--}}
 
-    $(document).ready(function () {
-        $('#confirm-delete').on('show.bs.modal', function (e) {
-            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-        });
-    });
-    $(function () {
-        $('.js-add-item').click(function () {
-            let route = '{{route('post.ajax_modal')}}';
-            $.ajax({
-                url: route,
-            })
-                .done(function (data) {
-                    $('#exampleModal .modal-body').html(data.html);
-                });
-        });
-        $('.js-edit-item').click(function () {
-            let route = $(this).attr('href');
-            $.ajax({
-                url: route,
-            })
-                .done(function (data) {
-                    //console.log(data.html);
-                    $('#exampleModal .modal-body').html(data.html);
-                });
-        });
-    });
-</script>
+    {{--$(document).ready(function () {--}}
+        {{--$('#confirm-delete').on('show.bs.modal', function (e) {--}}
+            {{--$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));--}}
+        {{--});--}}
+    {{--});--}}
+    {{--$(function () {--}}
+        {{--$('.js-add-item').click(function () {--}}
+            {{--let route = '{{route('post.ajax_modal')}}';--}}
+            {{--$.ajax({--}}
+                {{--url: route,--}}
+            {{--})--}}
+                {{--.done(function (data) {--}}
+                    {{--$('#exampleModal .modal-body').html(data.html);--}}
+                {{--});--}}
+        {{--});--}}
+        {{--$('.js-edit-item').click(function () {--}}
+            {{--let route = $(this).attr('href');--}}
+            {{--$.ajax({--}}
+                {{--url: route,--}}
+            {{--})--}}
+                {{--.done(function (data) {--}}
+                    {{--//console.log(data.html);--}}
+                    {{--$('#exampleModal .modal-body').html(data.html);--}}
+                {{--});--}}
+        {{--});--}}
+    {{--});--}}
+{{--</script>--}}
 @yield('script_tdl')
 @yield('script_tdl_cart')
 @include('backend.v2.upgrade-popup')

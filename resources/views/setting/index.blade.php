@@ -71,14 +71,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">Setting
+                                <div class="card-header">Settings
                                 </div>
                                 <div class="card-body table-responsive">
                                     <form id="setting-form" enctype="multipart/form-data">
                                         <input type = "hidden" name = "_ token" value = "{{Session :: token ()}}">
                                         {{ csrf_field() }}
                                         <div class="row">
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Status</label>
                                                     <div class="col-sm-9">
@@ -134,7 +134,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Font
                                                         Family</label>
@@ -193,15 +193,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2 m-auto text-center">
-                                                <div role="group" class="btn-group-sm btn-group">
-                                                    <button class="btn btn-primary js-add-js-setting"
-                                                            type="submit">
+
+                                        </div>
+                                        <div class="">
+                                            <div role="group" class="btn-group-sm btn-group">
+                                                <button class="btn btn-primary js-add-js-setting"
+                                                        type="submit">
                                                         <span>
                                                             <i class="fa fa-plus-circle"></i> Save Settings
                                                         </span>
-                                                    </button>
-                                                </div>
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
