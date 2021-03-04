@@ -65,13 +65,13 @@ Route::get('/', function () {
 });
 
 //Proxy
-Route::get('/proxy', 'AppProxyController@index')->middleware('auth.proxy');
-Route::get('/proxy/post-all', 'AppProxyController@post_all')->middleware('auth.proxy');
-Route::get('/proxy/post-all/detail/{id}', 'AppProxyController@post_detail')->middleware('auth.proxy');
-Route::get('/proxy/post-all/slider', 'AppProxyController@post_slider')->middleware('auth.proxy');
-Route::get('/proxy/category-all', 'AppProxyController@category_all')->middleware('auth.proxy');
-Route::get('/proxy/navbar', 'AppProxyController@navbar')->middleware('auth.proxy');
-Route::get('/proxy/nav', 'AppProxyController@nav')->middleware('auth.proxy');
+//Route::get('/proxy', 'AppProxyController@index')->middleware('auth.proxy');
+//Route::get('/proxy/post-all', 'AppProxyController@post_all')->middleware('auth.proxy');
+//Route::get('/proxy/post-all/detail/{id}', 'AppProxyController@post_detail')->middleware('auth.proxy');
+//Route::get('/proxy/post-all/slider', 'AppProxyController@post_slider')->middleware('auth.proxy');
+//Route::get('/proxy/category-all', 'AppProxyController@category_all')->middleware('auth.proxy');
+//Route::get('/proxy/navbar', 'AppProxyController@navbar')->middleware('auth.proxy');
+//Route::get('/proxy/nav', 'AppProxyController@nav')->middleware('auth.proxy');
 
 //Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => ['web']], function () {
@@ -101,7 +101,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //backend
     Route::get(
-        '/',
+        '/product-tab',
         'ProductreviewsController@index'
     )
         ->middleware(['auth.shop', 'billable'])
