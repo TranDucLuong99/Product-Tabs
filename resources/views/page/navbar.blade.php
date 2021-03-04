@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
-    <title>Document</title>
-    <style>
+<style>
         .resp-tabs-list {
             padding: 0px 0px 0 !important;
             display: flex;

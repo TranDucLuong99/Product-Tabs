@@ -159,8 +159,8 @@
                                                         Size</label>
                                                     <div class="col-sm-9">
                                                         <input class="form-control" min="1" type="number"
-                                                               name="font_site"
-                                                               value="{{$setting->font_site}}">
+                                                               name="font_size"
+                                                               value="{{$setting->font_size}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

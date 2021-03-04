@@ -35,10 +35,8 @@ class SettingController extends Controller
 
     public function ajax_modal(Request $request)
     {
-//        dd(2);
         if ($request->ajax()) {
             $html = view('component.modal_setting')->render();
-//            dd($request);
             return response([
                 'html' => $html
             ]);
@@ -70,7 +68,7 @@ class SettingController extends Controller
             $setting->update($data);
 
             $this->addCssToTheme();
-//            $this->addScriptNarbarToTheme();
+            $this->addScriptNarbarToTheme();
             return response([
                 'message' => 'success',
                 'type' => 'success'
@@ -101,8 +99,10 @@ class SettingController extends Controller
         $fileCss = '
         .ndnapps-nav-wrapper {     
            font-family: '. $font_family.';
-           font-size: ' . "$setting->font_site".'px'. ';
-           color: '."$setting->color". ';
+           font-size: ' . "$setting->font_size".'px'. ';
+           color: ' . "$setting->color". ';
+           background: ' . "$setting->background". ';
+           
         }
         .resp-tab-content-active{
             padding: 8px;
@@ -111,11 +111,9 @@ class SettingController extends Controller
             border-bottom-right-radius: 10px;
             border: 1px solid #eae4e4;
             border-top: none;
+            color: '."$setting->color_title". ';
             background: '."$setting->background_title". ';
-            color: '."$setting->color_title". ';
-        }
-        .resp-tab-content-active p{
-            color: '."$setting->color_title". ';
+        
         }
         ';
         $theme = $shop->api()->rest('GET', '/admin/themes.json', ['fields' => 'id,name,role'])->body->themes;
@@ -131,13 +129,7 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
-    }
-
-    public function delete($id)
-    {
-        $setting = Setting::findOrFail($id);
-        $setting->delete();
-        return redirect()->back()->with('message', 'delete-success !');
+//        return redirect()->route('setting.index')->with('message', 'success');
     }
 
     public function addScriptNarbarToTheme()
@@ -149,8 +141,8 @@ class SettingController extends Controller
         }
         $setting = Setting::findOrFail(1);
         if ($setting->status == 1) {
-            $navbars = Navbar::take($setting->max_column)->get();
-            $data = View::make('page.nav', compact('navbars', 'setting'))->render();
+            $navbars = Navbar::take($setting->max_column)->orderby('n_order')->get();
+            $data = View::make('page.navbar', compact('navbars', 'setting'))->render();
         }
         $fileScript = file_get_contents('js/ndnapps_navbar.js');
         $fileScript = 'var ndn_navbar_data= "' . base64_encode(json_encode($data)) . '";' . $fileScript;
@@ -168,5 +160,15 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
+        return redirect()->route('setting.index')->with('message', 'success');
     }
+
+    public function delete($id)
+    {
+        $setting = Setting::findOrFail($id);
+        $setting->delete();
+        return redirect()->back()->with('message', 'delete-success !');
+    }
+
+
 }
