@@ -123,14 +123,6 @@
 
 </div>
 <script>
-
-    // $(document).ready(function () {
-    //     //$('.table').dataTable();
-    //     var table = $('.table').DataTable();
-    //     //alert(table);
-    //     // $( "li" ).removeClass( "disabled" );
-    //     // $( "li" ).removeClass( "disabled" );
-    // });
     let arrp = [];
     $(document).on("change", ".check-all", function () {
         if (this.checked) {

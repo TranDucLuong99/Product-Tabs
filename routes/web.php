@@ -65,9 +65,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('navbar-ajax-edit-modal/{id}', 'NavbarController@ajax_edit_modal')->name('navbar.ajax_edit_modal');
     Route::get('navbar/delete/{id}', 'NavbarController@delete')->name('navbar.delete');
 
-    Route::get('navbar/create','NavbarController@create')->name('create.navbar');
+    Route::get('product-tab/create','NavbarController@create')->name('create.navbar');
     Route::get('paginate-product-navbar-ajax', 'NavbarController@paginate_product_navbar_ajax')->name('paginate_product_navbar_ajax');
-    Route::get('navbar/edit/{id}','NavbarController@edit')->name('edit.navbar');
-    Route::get('navbar/show/{id}','NavbarController@show')->name('show.navbar');
+    Route::get('product-tab/edit/{id}','NavbarController@edit')->name('edit.navbar');
+    Route::get('product-tab/show/{id}','NavbarController@show')->name('show.navbar');
     Route::get('addScriptNarbarToTheme','NavbarController@addScriptNarbarToTheme')->name('addScriptNarbarToTheme');
 });

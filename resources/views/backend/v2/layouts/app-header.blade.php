@@ -1,4 +1,5 @@
-<?php $shop = ShopifyApp::shop();
+<?php
+$shop = ShopifyApp::shop();
 $api = $shop->api();
 $_shop = $api->rest(
     'GET',
@@ -40,28 +41,6 @@ $_shop = $api->rest(
         </span>
     </div>
     <div class="app-header__content">
-        <!--<div class="app-header-left">
-            <ul class="header-menu nav">
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-question-circle"> </i>
-                        Get Support
-                    </a>
-                </li>
-                <li class="btn-group nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-thumbs-up"></i>
-                        Upgrade
-                    </a>
-                </li>
-                <li class="dropdown nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-book"></i>
-                        User Guide
-                    </a>
-                </li>
-            </ul>
-        </div>-->
         <div class="app-header-right">
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
@@ -71,7 +50,6 @@ $_shop = $api->rest(
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                     <img style="border-radius: 0 !important;" width="36" class="rounded-circle" src="https://cdn.shopify.com/shopifycloud/web/assets/v1/fadd62d4f33b5391d0eaa0de0ca7491a.svg" alt="">
                                 </a>
-
                             </div>
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">

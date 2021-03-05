@@ -70,12 +70,12 @@ class SettingController extends Controller
             $this->addCssToTheme();
             $this->addScriptNarbarToTheme();
             return response([
-                'message' => 'success',
+                'message' => 'Update Success',
                 'type' => 'success'
             ]);
         } else {
             return response([
-                'message' => 'error',
+                'message' => 'Update Error',
                 'type' => 'error'
             ]);
 
@@ -160,7 +160,7 @@ class SettingController extends Controller
                 $put2 = $shop->api()->rest('PUT', '/admin/themes/' . $_child->id . '/assets.json', ['asset' => ["key" => "layout/theme.liquid", 'value' => $new_layout]]);
             }
         }
-        return redirect()->route('setting.index')->with('message', 'success');
+//        return redirect()->route('setting.index')->with('message', 'Update Success');
     }
 
     public function delete($id)
